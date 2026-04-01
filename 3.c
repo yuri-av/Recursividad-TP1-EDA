@@ -31,14 +31,17 @@ int main()
 {
     int fibo;
     char c;
-    int scan = scanf("%d%c", &fibo,&c);
     printf("Ingrese un numero entero: ");
-    while(scan != 2 || c != '\n' || fibo <1){
-        if (scan != 2 || c != '\n'){
-            while (getchar() != '\n');
+    int scan = scanf("%d%c", &fibo, &c);
+    while (scan != 2 || c != '\n' || fibo < 1)
+    {
+        if (scan != 2 || c != '\n')
+        {
+            while (getchar() != '\n')
+                ;
         }
         printf("Error de tipo de datos: ingrese un numero entero: ");
-        scan = scanf("%d%c", &fibo,&c);
+        scan = scanf("%d%c", &fibo, &c);
     }
     int resultado = fibonacci(fibo);
     printf("%i\n", resultado);
