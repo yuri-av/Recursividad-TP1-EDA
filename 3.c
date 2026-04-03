@@ -27,13 +27,9 @@ int fibonacci(int fibo)
     return resultado;
 }
 
-int main()
+int validacion_entero(int *fibo, int scan, char c)
 {
-    int fibo;
-    char c;
-    printf("Ingrese un numero entero: ");
-    int scan = scanf("%d%c", &fibo, &c);
-    while (scan != 2 || c != '\n' || fibo < 1)
+    while (scan != 2 || c != '\n' || *fibo < 1)
     {
         if (scan != 2 || c != '\n')
         {
@@ -41,8 +37,21 @@ int main()
                 ;
         }
         printf("Error de tipo de datos: ingrese un numero entero: ");
-        scan = scanf("%d%c", &fibo, &c);
+        scan = scanf("%d%c", fibo, &c);
     }
+    return *fibo;
+}
+
+int main()
+{
+    int fibo;
+    char c;
+    printf("Ingrese un numero entero: ");
+    int scan = scanf("%d%c", &fibo, &c);
+
+    // Corregido: pasamos la dirección de fibo (&fibo) para que la función pueda modificarlo
+    validacion_entero(&fibo, scan, c);
+
     int resultado = fibonacci(fibo);
     printf("%i\n", resultado);
     return 0;
