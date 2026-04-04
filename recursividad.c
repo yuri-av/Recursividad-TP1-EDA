@@ -190,6 +190,7 @@ int Miles(int i,char pal[]){
 void MafiaChina(int n){
 	
 	if(n<=0){
+		printf("('-')");
 		return ;
 		}
 		
