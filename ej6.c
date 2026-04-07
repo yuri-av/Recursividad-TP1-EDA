@@ -18,7 +18,7 @@ void OndaDigital(char *cadena) {
     if (*cadena == 'L') {
         printf("_");
     } else {
-        printf("%c", 238);
+        printf("¯");
     }
 
     //si hubo cambio
