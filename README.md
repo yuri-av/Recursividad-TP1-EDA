@@ -10,7 +10,7 @@ Curso de Estructuras de Datos y Algoritmos I, Universidad Nacional de Lujan
 ##### Reinaudi Claudia – Ayudante de 1era
 ## N° de grupo: 5
 ## Alumnos: 
-
+###### Fiorence Carpo 208230 carpo.n.fiorence@gmail.com
 
 Apellido y Nombre // Legajo // Mails
 
