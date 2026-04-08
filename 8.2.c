@@ -18,10 +18,20 @@ void buscarSubconjuntos(int conjunto[], int tamano, int objetivo, int indiceActu
         {
             desplazados += sprintf(bufferTemporal + desplazados, "%i, ", subconjuntoActual[i]);
         }
+
+        // --- TRUCO ESTÉTICO ---
+        // Si hay números en el subconjunto, retrocedemos el lápiz 2 espacios
+        // para sobreescribir la última coma y el espacio.
+        if (tamanoSubconjunto > 0)
+        {
+            desplazados -= 2;
+        }
+
         desplazados += sprintf(bufferTemporal + desplazados, "}\n");
         strcat(*output, bufferTemporal);
         return;
     }
+
     // Caso base 2: Se terminaron los números o el objetivo es negativo
     if (indiceActual == tamano || objetivo < 0)
     {
@@ -31,10 +41,10 @@ void buscarSubconjuntos(int conjunto[], int tamano, int objetivo, int indiceActu
     // Camino A: INCLUIR
     subconjuntoActual[tamanoSubconjunto] = conjunto[indiceActual];
     buscarSubconjuntos(conjunto, tamano, objetivo - conjunto[indiceActual], indiceActual + 1, subconjuntoActual, tamanoSubconjunto + 1, output);
+
     // Camino B: EXCLUIR
     buscarSubconjuntos(conjunto, tamano, objetivo, indiceActual + 1, subconjuntoActual, tamanoSubconjunto, output);
 }
-
 void subconjuntosQueSumanN(int conjunto[], int tamano, int objetivo, char **output)
 {
     int subconjuntoActual[MAX];
@@ -78,7 +88,7 @@ int leer_entero(const char *mensaje)
 int main()
 {
     printf("=== Subconjuntos que suman N ===\n\n");
-    char c, *output;
+    char *output;
     int conjunto[MAX] = {};
     int tamano = 0;
     int objetivo = 0;
@@ -89,7 +99,6 @@ int main()
         if (tamano <= 0)
             printf("  Error: debe ser mayor a 0.\n");
     }
-    printf("Ingrese el objetivo de los subconjuntos: ");
 
     while (objetivo <= 0)
     {
@@ -98,7 +107,7 @@ int main()
             printf("  Error: debe ser mayor a 0.\n");
     }
 
-    printf("Ingrese los valores de la lista: ");
+    printf("==== VALORES DE LA LISTA ====\n");
     for (int i = 0; i < tamano; i++)
     {
         bool valido = false;
