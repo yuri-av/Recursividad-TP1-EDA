@@ -9,7 +9,7 @@ como parámetro es un palíndromo.  Ej. “neuquen” ya que se lee igual de atr
 bool palindromo (char * cadena);
 
 
-// Ejercicio 2
+// Ejercicio 2 d
 /*2.	Dados dos números enteros m y n, construir una función recursiva que devuelva 
 el producto de ambos, calculando el mismo como sumas sucesivas. Esto es: m*n=m+m+...+m, n veces. */
 

@@ -9,7 +9,6 @@
 
 #define MAX 100
 //Ejercicio 1:
-
 bool palindromoResolucion(char palabra[], int inicio, int fin) {
     if (inicio >= fin) {
         return true;
