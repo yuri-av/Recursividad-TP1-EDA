@@ -35,27 +35,26 @@ char validacionDeLetra(char mensaje[], char opcionStr[], int tamOpcion, char ini
 }
 
 //validacion general para un numero entero
-int validacion_ingreso(){
+int validacion_ingreso() {
     int numero;
     char car;
+    int leidos;
 
-    while (scanf("%d%c", &numero, &car) != 2 || car != '\n')
-    {
-        // Mensaje genérico para cualquier número entero
+    while (1) {
+        leidos = scanf("%d%c", &numero, &car);
+
+        // Si leyó exactamente el entero y el Enter, es válido.
+        if (leidos == 2 && car == '\n') {
+            return numero; 
+        } 
+
+        // Si falló, mostramos error y limpiamos el buffer incondicionalmente
         printf("Opcion invalida. Ingrese un numero entero: ");
-
-        // Limpieza del buffer de entrada
-        if (car != '\n')
-        {
-            while (getchar() != '\n')
-                ;
-        }
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF)
+            ; // Bucle vacío para desechar la basura
     }
-
-    // Retornamos el valor ya validado
-    return numero;
 }
-
 // 2. HERRAMIENTA PARA TEXTOS
 void leerCadena(const char *mensaje, char *buffer, int limite){
     while (true)
